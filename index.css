@@ -1,35 +1,41 @@
 body {
-    background-color: lightblue;
-    margin: 0;
-    padding: 0;
-    font-family: "times new roman", Times,serif;
+  background-color: lightblue;
+  margin: 0;
+  padding: 0;
+  font-family: "times new roman", Times, serif;
 }
+
 .head1 {
-    text-align: center;
-    color: darkblue;
-    margin-top: 30px;
-    font-size: 40px;
+  text-align: center;
+  color: darkblue;
+  margin-top: 30px;
+  font-size: 40px;
 }
+
 .subtitle {
-    text-align: center;
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 30px;
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
 }
+
 .hero {
-    text-align: center;
-    margin-bottom: 40px;
+  text-align: center;
+  margin-bottom: 40px;
 }
+
 .hero img {
-    width: 350px;
-    max-width: 90%;
+  width: 350px;
+  max-width: 90%;
 }
 
 
 
 
 /* new */
-* {box-sizing:border-box}
+* {
+  box-sizing: border-box
+}
 
 /* Slideshow container */
 .slideshow-container {
@@ -44,7 +50,8 @@ body {
 }
 
 /* Next & previous buttons */
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -66,7 +73,8 @@ body {
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
+.prev:hover,
+.next:hover {
   background-color: rgba(216, 213, 53, 0.8);
 }
 
@@ -102,7 +110,8 @@ body {
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+.active,
+.dot:hover {
   background-color: #717171;
 }
 
@@ -113,8 +122,13 @@ body {
 }
 
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
 }
 
 
@@ -123,73 +137,134 @@ body {
 
 
 .comparison {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    padding: 20px 40px 60px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px 40px 60px;
+  flex-wrap: wrap;
 }
 
 .expect {
-    background-color: rgb(163, 147, 147);
-    width: 320px;
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    text-align: center;
+  background-color: rgb(163, 147, 147);
+  width: 320px;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
 }
+
 .expect h2 {
-    font-size: 26px;
-    margin-bottom: 15px;
+  font-size: 26px;
+  margin-bottom: 15px;
 }
+
 .expect img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 15px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
 }
+
 .expect p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #e93717;
-    font-size: 18px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #e93717;
+  font-size: 18px;
 }
+
 .why {
-    max-width: 700px;
-    margin: 0 auto 50px;
-    text-align: center;
-    font-size: 20px;
-    line-height: 1.6;
-    color: #444;
-    font-weight: bolder;
+  max-width: 700px;
+  margin: 0 auto 50px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #444;
+  font-weight: bolder;
 }
+
 .buttons {
-    text-align: center;
-    margin-bottom: 60px;
+  text-align: center;
+  margin-bottom: 60px;
 }
+
 .button {
-    display: inline-block;
-    padding: 12px 22px;
-    margin: 10px;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 4px;
+  display: inline-block;
+  padding: 12px 22px;
+  margin: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 4px;
 }
+
 .primary {
-    background-color: lightgreen;
-    color: rgb(0, 0, 0);
+  background-color: lightgreen;
+  color: rgb(0, 0, 0);
 }
+
 .secondary {
-    border: 1px solid lightcoral;
-    color: #333;
+  border: 1px solid lightcoral;
+  color: #333;
 }
+
+.audio {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 20px;
+
+}
+
+.doraemon {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid black;
+  border-radius: 20px;
+  align-items: center;
+  padding: 10px 10px 10px 10px;
+  background-color: lightgreen;
+}
+
+.video {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 5px 5px 5px 5px;
+}
+
+.video1 {
+  border: 2px solid black;
+  border-radius: 20px;
+  align-items: center;
+  padding: 10px 10px 10px 10px;
+  background-color: lightpink;
+  object-fit: cover;
+}
+
+.iframe {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.iframe_expect {
+  border: 2px solid black;
+  border-radius: 20px;
+  align-items: center;
+  padding: 10px 10px 10px 10px;
+  background-color: lightgreen;
+}
+
 .ending {
-    text-align: center;
-    color: #ffffff;
+  text-align: center;
+  color: #ffffff;
 }
+
 marquee {
-    background-color: rgb(0, 0, 0);
-    padding: 10px 0;
-    overflow: hidden;
-    white-space: nowrap;
-    box-sizing: border-box;
+  background-color: rgb(0, 0, 0);
+  padding: 10px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
 }

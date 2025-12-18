@@ -1,22 +1,24 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width" , initial-scale="0.1">
-        <title>Expectation Vs Reality</title>
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
-        <h1 class="head1">Expectation vs Reality</h1>
-        <p class="subtitle">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" , initial-scale="0.1">
+    <title>Expectation Vs Reality</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <h1 class="head1">Expectation vs Reality</h1>
+    <p class="subtitle">
         What we imagine. What actually happens.
-        </p>
+    </p>
 
-        <div class="hero">
-            <img src="image3.jpg" alt="Expectation vs Reality illustration">
-        </div>
+    <div class="hero">
+        <img src="image3.jpg" alt="Expectation vs Reality illustration">
+    </div>
 
-        <!-- Slideshow container -->
-        <div class="slideshow-container">
+    <!-- Slideshow container -->
+    <div class="slideshow-container">
 
         <!-- Full-width images with number and caption text -->
         <div class="mySlides fade">
@@ -40,54 +42,77 @@
         <!-- Next and previous buttons -->
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
-        <br>
+    </div>
+    <br>
 
-        <!-- The dots/circles -->
-        <div style="text-align:center">
+    <!-- The dots/circles -->
+    <div style="text-align:center">
         <span class="dot" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
         <span class="dot" onclick="currentSlide(3)"></span>
-        </div>
+    </div>
 
 
-        <!-- comparision between except and reality -->
-        <div class="comparison">
+    <!-- comparision between except and reality -->
+    <div class="comparison">
 
-            <div class="expect">
-                <h2>Expectation</h2>
-                <img src="expectation.jpg" alt="Expectation">
-                <p>
-                    This is what we believe will happen based on hopes,
-                    assumptions, and planning.
-                </p>
-            </div>
-
-            <div class="expect">
-                <h2>Reality</h2>
-                <img src="reality.jpg" alt="Reality">
-                <p>
-                    This is what actually happens, shaped by constraints,
-                    uncertainty, and real conditions.
-                </p>
-            </div>
-        </div>
-        <section class="why">
+        <div class="expect">
+            <h2>Expectation</h2>
+            <img src="expectation.jpg" alt="Expectation">
             <p>
-                We often plan our lives around assumptions.
-                This space collects real experiences where expectations
-                didn’t match reality — to help others reflect and prepare better.
+                This is what we believe will happen based on hopes,
+                assumptions, and planning.
             </p>
-        </section>
-        <div class="buttons">
-             <a href="submit.html" class="button primary">Share your experience</a>
-            <a href="stories.html" class="button secondary">Read experiences</a>
         </div>
-        <marquee  direction="left" >
-            <p class="ending" >
-                Sometimes knowing the reality is better than chasing the expectation.
+
+        <div class="expect">
+            <h2>Reality</h2>
+            <img src="reality.jpg" alt="Reality">
+            <p>
+                This is what actually happens, shaped by constraints,
+                uncertainty, and real conditions.
             </p>
-        </marquee>
-    <script src="index.js"></script>  
-    </body>
+        </div>
+    </div>
+    <section class="why">
+        <p>
+            We often plan our lives around assumptions.
+            This space collects real experiences where expectations
+            didn’t match reality — to help others reflect and prepare better.
+        </p>
+    </section>
+    <div class="buttons">
+        <a href="submit.html" class="button primary">Share your experience</a>
+        <a href="stories.html" class="button secondary">Read experiences</a>
+    </div>
+    <div class="audio">
+        <audio controls class="doraemon">
+            <source src="doraemon.mp3" type="audio/mp3">
+        </audio>
+    </div><br>
+    <div class="video">
+        <video width="450" height="300" controls autoplay muted loop class="video1">
+            <source src="video1.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="iframe">
+        <div class="iframe_expect">
+            <iframe src="https://www.topleftdesign.com/website-expectations/" title="Expectation" width="550"
+                height="500" frameborder="0"></iframe>
+        </div>
+        <div class="iframe_expect">
+            <iframe src="https://www.balancedpeople.com/expectation-vs-reality/" title="Reality" width="550"
+                height="500" frameborder="0"></iframe>
+        </div>
+    </div>
+
+
+    <marquee direction="left">
+        <p class="ending">
+            Sometimes knowing the reality is better than chasing the expectation.
+        </p>
+    </marquee>
+    <script src="index.js"></script>
+</body>
+
 </html>
