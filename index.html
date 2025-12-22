@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width" , initial-scale="0.1">
     <title>Expectation Vs Reality</title>
     <link rel="stylesheet" href="index.css">
+
+
+    <style>
+        .table-section {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,10 +27,8 @@
         <img src="image3.jpg" alt="Expectation vs Reality illustration">
     </div>
 
-    <!-- Slideshow container -->
     <div class="slideshow-container">
 
-        <!-- Full-width images with number and caption text -->
         <div class="mySlides fade">
             <div class="numbertext">1 / 3</div>
             <img src="image1.jpg" style="width:100%">
@@ -107,11 +115,55 @@
     </div>
 
 
-    <marquee direction="left">
+
+    <div class="table-section"  >
+
+        <table class="comparison-table" style="border: 2px solid rgb(255, 0, 0);  ">
+            <caption>Expectation</caption>
+            <tr>
+                <th>Aspect</th>
+                <th>What We Expect</th>
+            </tr>
+            <tr>
+                <td>College Life</td>
+                <td>Easy exams and free time</td>
+            </tr>
+            <tr>
+                <td>Job</td>
+                <td>High salary immediately</td>
+            </tr>
+            <tr>
+                <td>Projects</td>
+                <td>Finish in one night</td>
+            </tr>
+        </table>
+
+        <table class="comparison-table" style="border: 2px solid rgb(47, 0, 255);">
+            <caption>Reality</caption>
+            <tr>
+                <th>Aspect</th>
+                <th>What Actually Happens</th>
+            </tr>
+            <tr>
+                <td>College Life</td>
+                <td>Deadlines and pressure</td>
+            </tr>
+            <tr>
+                <td>Job</td>
+                <td>Skills matter more than degree</td>
+            </tr>
+            <tr>
+                <td>Projects</td>
+                <td>Testing takes more time than coding</td>
+            </tr>
+        </table>
+
+    </div>
+
+
         <p class="ending">
             Sometimes knowing the reality is better than chasing the expectation.
         </p>
-    </marquee>
     <script src="index.js"></script>
 </body>
 
