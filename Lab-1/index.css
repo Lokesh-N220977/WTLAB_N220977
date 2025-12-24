@@ -1,0 +1,231 @@
+body {
+  background-color: lightblue;
+  margin: 0;
+  padding: 0;
+  font-family: "times new roman", Times, serif;
+}
+
+.head1 {
+  text-align: center;
+  color: darkblue;
+  margin-top: 30px;
+  font-size: 40px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero img {
+  width: 350px;
+  max-width: 90%;
+}
+
+
+
+
+
+/* ---------- Carousel Professional Fix ---------- */
+
+.slideshow-container {
+    max-width: 800px;
+    height: 450px;              /* fixed professional height */
+    margin: 40px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.mySlides {
+    width: 100%;
+    height: 100%;
+}
+
+.mySlides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* KEY FIX */
+    display: block;
+}
+
+/* Smooth fade without jump */
+.fade {
+    animation: fadeEffect 0.8s ease-in-out;
+}
+
+@keyframes fadeEffect {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+/* Caption stays aligned */
+.text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+
+
+
+.comparison {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px 40px 60px;
+  flex-wrap: wrap;
+}
+
+.expect {
+  background-color: rgb(163, 147, 147);
+  width: 320px;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.expect h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+.expect img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.expect p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #e93717;
+  font-size: 18px;
+}
+
+.why {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #444;
+  font-weight: bolder;
+}
+
+.buttons {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 22px;
+  margin: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.primary {
+  background-color: lightgreen;
+  color: rgb(0, 0, 0);
+}
+
+.secondary {
+  border: 1px solid lightcoral;
+  color: #333;
+}
+
+.audio {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 20px;
+
+}
+
+.doraemon {
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid black;
+  border-radius: 20px;
+  align-items: center;
+  padding: 10px 10px 10px 10px;
+  background-color: lightgreen;
+}
+
+.video {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 5px 5px 5px 5px;
+}
+
+.video1 {
+  border: 2px solid black;
+  border-radius: 20px;
+  align-items: center;
+  padding: 10px 10px 10px 10px;
+  background-color: lightpink;
+  object-fit: cover;
+}
+
+.iframe {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.iframe_expect {
+  border: 2px solid black;
+  border-radius: 20px;
+  align-items: center;
+  padding: 10px 10px 10px 10px;
+  background-color: lightgreen;
+}
+
+
+.comparison-table{
+  width :350px;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.comparison-table caption{
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.comparison-table th,
+.comparison-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+.comparison-table th {
+    background-color: #eeeeee;
+    font-weight: bold;
+}
+.comparison-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.ending {
+  text-align: center;
+  color: #000000;
+}
