@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey - Expectation vs Reality</title>
+    <!-- We keep index.css for global resets and navbar styles -->
+    <link rel="stylesheet" href="index.css">
+    <style>
+        /* =========================================
+           TIMELINE STYLES (Professional Theme)
+           ========================================= */
+
+        /* 
+           Using global variables from index.css where possible.
+           --primary: usually the main dark color
+           --secondary: the accent color
+        */
+
+        body {
+            /* Ensure we use the global font and background */
+            background-color: #f8f9fa;
+            /* Light professional gray */
+            color: #333;
+        }
+
+        /* Timeline Container */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* The Central Line */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            /* Using Accent color for visibility as requested */
+            background-color: var(--accent);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Container around content */
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: transparent;
+            width: 50%;
+            box-sizing: border-box;
+            animation: movedown 1s linear forwards;
+            opacity: 0;
+        }
+
+        /* The circles on the central line */
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            border: 4px solid var(--secondary);
+            /* Secondary color ring */
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+            transition: all 0.3s;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 1);
+            /* White ring */
+        }
+
+        /* Place left and right */
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        /* Fix circle for right side */
+        .right::after {
+            left: -14px;
+        }
+
+        /* The actual content card */
+        .content {
+            padding: 25px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            /* Enhanced professional shadow */
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+
+        .content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+            border-color: var(--accent);
+        }
+
+        /* Lighting up the central node on hover */
+        .timeline-container:hover::after {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+            transform: scale(1.2);
+        }
+
+        .content h2 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .content p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Media styling */
+        .media-box {
+            margin-top: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #f1f3f5;
+            border: 1px solid #eee;
+        }
+
+        img,
+        video {
+            max-width: 100%;
+            display: block;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 15px;
+            outline: none;
+        }
+
+        /* Date/Tag label */
+        .date-label {
+            display: inline-block;
+            background: #e9ecef;
+            /* Neutral tag background */
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        /* Animation Keyframes */
+        @keyframes movedown {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Staggered delays */
+        .timeline-container:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .timeline-container:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .timeline-container:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .timeline-container:nth-child(4) {
+            animation-delay: 0.7s;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            /* Arrow indicators for mobile */
+            .timeline-container::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+                /* content: " "; position: absolute; top:30px; z-index: 100; display: block; */
+                /* Optional arrow hint */
+            }
+
+            .left::after,
+            .right::after {
+                left: 19px;
+            }
+
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Exp<span>vs</span>Real</div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="compare.html">Compare</a></li>
+                <li><a href="experience.html" class="active">Experiences</a></li>
+                <li><a href="share.html">Share</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="signin.html" class="btn-signin">Sign In</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero"
+        style="min-height: 40vh; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); padding-bottom: 40px; padding-top: 100px; position: relative;">
+        <!-- Added a subtle pattern overlay if desired, but keeping it simple for now -->
+        <h1 style="color:white; text-shadow: 0 2px 10px rgba(0,0,0,0.2);">Your Journey</h1>
+        <p class="hero-subtitle" style="color: rgba(255,255,255,0.9); font-weight: 500;">Real stories from the path less
+            traveled.</p>
+    </header>
+
+    <div class="timeline">
+
+        <!-- 
+        ============================================================================
+        HOW TO ADD NEW CONTENT:
+        
+        1. Decide if you want it on the LEFT or RIGHT (alternating looks best).
+        2. Copy the entire 'timeline-container' block below.
+        3. Paste it before the closing </div> of the timeline.
+        4. Change the class "left" to "right" if needed.
+        5. Update the content inside the "content" div.
+        ============================================================================
+        -->
+
+        <!-- ITEM 1: LEFT -->
+        <div class="timeline-container left">
+            <div class="content">
+                <span class="date-label">Podcast Series</span>
+                <h2>The College Trap</h2>
+                <div class="media-box">
+                    <img src="image1.jpg" alt="Podcast Cover">
+                </div>
+                <audio controls>
+                    <source src="doraemon.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+                <p style="margin-top: 15px;">We discuss how university brochures promised endless parties, but the
+                    library became our second home.</p>
+            </div>
+        </div>
+
+        <!-- ITEM 2: RIGHT -->
+        <div class="timeline-container right">
+            <div class="content">
+                <span class="date-label">Video Documentary</span>
+                <h2>First Job Reality</h2>
+                <div class="media-box">
+                    <video controls>
+                        <source src="video1.mp4" type="video/mp4">
+                        Your browser does not support video.
+                    </video>
+                </div>
+                <p style="margin-top: 15px;">Expectation: Coding complex algorithms daily.<br>Reality: Fixing CSS bugs
+                    for 6 hours.</p>
+            </div>
+        </div>
+
+        <!-- ITEM 3: LEFT -->
+        <div class="timeline-container left">
+            <div class="content">
+                <span class="date-label">Exclusive Interview</span>
+                <h2>Project Management Myths</h2>
+                <div class="media-box">
+                    <img src="image3.jpg" alt="Interview">
+                </div>
+                <div
+                    style="margin-top: 15px; padding: 15px; background: #e3f2fd; border-radius: 4px; border-left: 4px solid var(--secondary);">
+                    <p style="font-style: italic; color: #1565c0;">"Agile isn't about speed. It's about figuring out
+                        you're wrong sooner."</p>
+                </div>
+                <p style="margin-top: 15px;">A Senior PM breaks down why "Agile" often just means "Faster Chaos" in many
+                    startups.</p>
+            </div>
+        </div>
+
+        <!-- PASTE NEW ITEMS BELOW HERE -->
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <p>contact@expvsreal.com</p>
+        <p>Knowing reality early saves years.</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('#mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('is-active');
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Your Story - Expectation vs Reality</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .share-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .form-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Exp<span>vs</span>Real</div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="compare.html">Compare</a></li>
+                <li><a href="experience.html">Experiences</a></li>
+                <li><a href="share.html">Share</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="signin.html" class="btn-signin">Sign In</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero"
+        style="min-height: 40vh; background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('image3.jpg') no-repeat center center/cover; color: white; display: flex; flex-direction: column; justify-content: center;">
+        <h1 style="color: white;" class="fade-in-up">Tell Us Your Story</h1>
+        <p class="hero-subtitle fade-in-up delay-100" style="color: rgba(255,255,255,0.9);">Help others prepare by
+            sharing your own 'Expectation vs Reality' moment.</p>
+    </header>
+
+    <section class="share-container">
+        <div class="form-card fade-in-up delay-200 hover-scale">
+            <form class="share-form" style="margin-top:0; box-shadow: none; padding: 0;">
+                <div class="form-group">
+                    <label>Name (Optional)</label>
+                    <input type="text" placeholder="John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label>Category</label>
+                    <select>
+                        <option>College Life</option>
+                        <option>First Job</option>
+                        <option>Relationships</option>
+                        <option>Programming Projects</option>
+                        <option>Moving Out</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>What did you expect?</label>
+                    <textarea placeholder="I thought it would be like..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What actually happened?</label>
+                    <textarea placeholder="But in reality, it was..."></textarea>
+                </div>
+
+                <button type="submit" style="width: 100%;">Submit Story</button>
+            </form>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>contact@expvsreal.com</p>
+        <p>Knowing reality early saves years.</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('#mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('is-active');
+            navLinks.classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('is-active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
