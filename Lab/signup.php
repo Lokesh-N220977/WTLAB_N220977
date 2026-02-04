@@ -50,13 +50,15 @@ session_start();
             margin-bottom: 30px;
         }
 
-        .signup-card input {
+        .signup-card input,
+        .signup-card select {
             width: 100%;
             padding: 12px;
             margin-bottom: 15px;
             border-radius: 8px;
             border: 1px solid #ccc;
             font-size: 0.95rem;
+            background: #fff;
         }
 
         .signup-card button {
@@ -116,7 +118,7 @@ session_start();
 
 <body>
 
-    <!-- NAVBAR (UNCHANGED) -->
+    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">Exp<span>vs</span>Real</div>
@@ -137,9 +139,10 @@ session_start();
             if (isset($_GET["error"])) {
                 if ($_GET["error"] === "exists") {
                     echo "<div class='error'>Email already exists</div>";
-                }
-                if ($_GET["error"] === "empty") {
+                } elseif ($_GET["error"] === "empty") {
                     echo "<div class='error'>All fields are required</div>";
+                } elseif ($_GET["error"] === "password") {
+                    echo "<div class='error'>Password must be strong (8+ chars, upper, lower, number, special)</div>";
                 }
             }
 
@@ -149,9 +152,24 @@ session_start();
             ?>
 
             <form action="php/register.php" method="POST" autocomplete="off">
+
+                <input type="text" name="firstname" placeholder="First Name" required>
+
+                <input type="text" name="lastname" placeholder="Last Name" required>
+
+                <select name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+
                 <input type="text" name="username" placeholder="Username" required>
+
                 <input type="email" name="email" placeholder="Email Address" required>
+
                 <input type="password" name="password" placeholder="Password" autocomplete="new-password" required>
+
                 <button type="submit">Sign Up</button>
             </form>
 

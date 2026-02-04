@@ -6,16 +6,41 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     exit;
 }
 
-$username = trim($_POST["username"]);
-$email    = trim($_POST["email"]);
-$password = trim($_POST["password"]);
+/* Read input */
+$firstname = trim($_POST["firstname"] ?? "");
+$lastname  = trim($_POST["lastname"] ?? "");
+$gender    = trim($_POST["gender"] ?? "");
+$username  = trim($_POST["username"] ?? "");
+$email     = trim($_POST["email"] ?? "");
+$password  = $_POST["password"] ?? "";
 
-if ($username === "" || $email === "" || $password === "") {
-    header("Location: ../signup.php?error=empty");
-    exit;
+/* Empty validation */
+if (
+    $firstname === "" || $lastname === "" || $gender === "" ||
+    $username === "" || $email === "" || $password === ""
+) {
+    die("Error: All fields are required");
 }
 
-/* check if email already exists */
+$firstname = ucwords(strtolower(htmlspecialchars($firstname)));
+$lastname  = ucwords(strtolower(htmlspecialchars($lastname)));
+$username  = ucfirst(strtolower(htmlspecialchars($username)));
+$email     = htmlspecialchars($email);
+
+if (strlen($username) < 4) {
+    die("Error: Username must be at least 4 characters long");
+}
+
+if (
+    strlen($password) < 8 ||
+    !preg_match("/[A-Z]/", $password) ||
+    !preg_match("/[a-z]/", $password) ||
+    !preg_match("/[0-9]/", $password) ||
+    !preg_match("/[\W]/", $password)
+) {
+    die("Error: Password must be strong (8 chars, upper, lower, number, special)");
+}
+
 $sql = "SELECT id FROM users WHERE email = ?";
 $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, "s", $email);
@@ -23,23 +48,30 @@ mysqli_stmt_execute($stmt);
 mysqli_stmt_store_result($stmt);
 
 if (mysqli_stmt_num_rows($stmt) > 0) {
-    header("Location: ../signup.php?error=exists");
-    exit;
+    die("Error: Email already registered");
 }
-
 mysqli_stmt_close($stmt);
 
-/* hash password */
 $hashed = password_hash($password, PASSWORD_DEFAULT);
 
-/* insert user */
-$sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
-$stmt = mysqli_prepare($conn, $sql);
-mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hashed);
-mysqli_stmt_execute($stmt);
+$sql = "INSERT INTO users 
+(firstname, lastname, gender, username, email, password)
+VALUES (?, ?, ?, ?, ?, ?)";
 
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param(
+    $stmt,
+    "ssssss",
+    $firstname,
+    $lastname,
+    $gender,
+    $username,
+    $email,
+    $hashed
+);
+
+mysqli_stmt_execute($stmt);
 mysqli_stmt_close($stmt);
 mysqli_close($conn);
 
-header("Location: ../signup.php?success=1");
-exit;
+echo "Registration successful";
