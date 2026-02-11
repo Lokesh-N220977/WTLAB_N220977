@@ -1,1 +1,2 @@
-This is written using w mode.
+File reset using w+ mode.
+Appending using a+ mode.

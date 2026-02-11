@@ -232,20 +232,42 @@ $realFiles = array_filter($files, function ($file) {
                 </div>
             </div>
 
-            <form action="download.php" method="get" style="margin:0;">
-                <input type="hidden" name="file" value="<?php echo $file; ?>">
-                <button type="submit" style="
-                    width:auto;
-                    padding:10px 24px;
-                    border-radius:25px;
-                    background:#2ecc71;
-                    color:white;
-                    border:none;
-                    cursor:pointer;
-                ">
-                    Download
-                </button>
-            </form>
+            <div style="display:flex; gap:10px;">
+
+    <!-- Download Button -->
+    <form action="download.php" method="get" style="margin:0;">
+        <input type="hidden" name="file" value="<?php echo htmlspecialchars($file); ?>">
+        <button type="submit" style="
+            padding:10px 24px;
+            border-radius:25px;
+            background:#2ecc71;
+            color:white;
+            border:none;
+            cursor:pointer;
+        ">
+            Download
+        </button>
+    </form>
+
+    <!-- Delete Button -->
+    <form action="delete.php" method="post" style="margin:0;"
+          onsubmit="return confirm('Are you sure you want to delete this file?');">
+
+        <input type="hidden" name="file" value="<?php echo htmlspecialchars($file); ?>">
+
+        <button type="submit" style="
+            padding:10px 24px;
+            border-radius:25px;
+            background:#e74c3c;
+            color:white;
+            border:none;
+            cursor:pointer;
+        ">
+            Delete
+        </button>
+    </form>
+
+</div>
 
         </div>
 
