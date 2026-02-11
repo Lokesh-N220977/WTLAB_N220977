@@ -160,6 +160,105 @@ if (!isset($_SESSION["user_id"])) {
         </form>
     </section>
 
+
+    <!-- Form for upload -->
+     <section class="share" id="share">
+        <h2>Upload your files</h2>
+        <form  class="share-form" action="upload.php" method="post" enctype="multipart/form-data">
+            <input type="file" name="myfile" required>
+            <button type="submit">Upload</button>
+        </form>
+     </section>
+
+     <!-- download the file -->
+     <?php
+$dir = "uploads/";
+
+if (!is_dir($dir)) {
+    mkdir($dir);
+}
+
+$files = scandir($dir);
+
+$realFiles = array_filter($files, function ($file) {
+    return $file != "." && $file != "..";
+});
+?>
+
+<?php if (count($realFiles) > 0): ?>
+
+<section class="share">
+    <h2>Download Your Files</h2>
+
+    <?php
+    $dir = "uploads/";
+
+    if (!is_dir($dir)) {
+        mkdir($dir);
+    }
+
+    $files = scandir($dir);
+    ?>
+
+    <div style="max-width:600px; margin:0 auto;">
+
+        <?php
+        foreach ($files as $file) {
+
+            if ($file != "." && $file != "..") {
+
+                $filepath = $dir . $file;
+                $size = round(filesize($filepath) / 1024, 2);
+                $modified = date("d M Y, h:i A", filemtime($filepath));
+        ?>
+
+        <div style="
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background:white;
+            padding:20px;
+            border-radius:12px;
+            box-shadow:0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom:18px;
+        ">
+
+            <div>
+                <div style="font-weight:600; color:#2c3e50;">
+                    <?php echo $file; ?>
+                </div>
+                <div style="font-size:0.85rem; color:#7f8c8d; margin-top:5px;">
+                    <?php echo $size; ?> KB • <?php echo $modified; ?>
+                </div>
+            </div>
+
+            <form action="download.php" method="get" style="margin:0;">
+                <input type="hidden" name="file" value="<?php echo $file; ?>">
+                <button type="submit" style="
+                    width:auto;
+                    padding:10px 24px;
+                    border-radius:25px;
+                    background:#2ecc71;
+                    color:white;
+                    border:none;
+                    cursor:pointer;
+                ">
+                    Download
+                </button>
+            </form>
+
+        </div>
+
+        <?php
+            }
+        }
+        ?>
+
+    </div>
+</section>
+
+<?php endif; ?>
+
     <!-- FOOTER -->
     <footer id="contact">
         <p>contact@expvsreal.com</p>

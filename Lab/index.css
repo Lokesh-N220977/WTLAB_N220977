@@ -750,6 +750,67 @@ table {
   will-change: transform, opacity;
   animation: formVisible 0.9s var(--ease-smooth) 0.7s both;
 }
+/* ===============================
+   FILE DOWNLOAD SECTION
+================================ */
+
+.file-list {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.file-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.file-row:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.file-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--primary);
+}
+
+.file-info {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: 5px;
+}
+
+.file-right {
+  display: flex;
+  align-items: center;
+}
+
+.file-right form {
+  margin: 0;
+}
+
+/* Override global button width */
+.file-right button {
+  width: auto;
+  padding: 10px 24px;
+  border-radius: 25px;
+}
 
 @keyframes formVisible {
   from {
