@@ -1,0 +1,3 @@
+Hello World
+This is file functions demo.
+Locked writing example.

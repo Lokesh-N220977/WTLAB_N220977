@@ -1,0 +1,2 @@
+File reset using w+ mode.
+Appending using a+ mode.
