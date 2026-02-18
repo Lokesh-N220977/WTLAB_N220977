@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 
@@ -16,8 +17,14 @@ if (isset($_SESSION["user_id"]) || isset($_SESSION["google_id"])) {
     <title>Sign In - Expectation vs Reality</title>
     <link rel="stylesheet" href="index.css">
 
+
     <style>
         body {
+
+    <style>
+        body {
+            /* Override body padding for full screen effect */
+
             padding-top: 70px;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
@@ -27,6 +34,8 @@ if (isset($_SESSION["user_id"]) || isset($_SESSION["google_id"])) {
 
         .signin-container {
             flex: 1;
+            /* Pushes footer down */
+
             display: flex;
             align-items: center;
             justify-content: center;
@@ -46,12 +55,44 @@ if (isset($_SESSION["user_id"]) || isset($_SESSION["google_id"])) {
 
         .signin-visual {
             flex: 1;
+
             background: linear-gradient(135deg, #2c3e50, #34495e);
+            background: linear-gradient(135deg, var(--primary), #34495e);
+
             color: white;
             padding: 60px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+
+            position: relative;
+        }
+
+        .signin-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('reality.jpg') no-repeat center center/cover;
+            opacity: 0.1;
+        }
+
+        .signin-visual h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .signin-visual p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+
         }
 
         .signin-form-wrapper {
@@ -65,9 +106,11 @@ if (isset($_SESSION["user_id"]) || isset($_SESSION["google_id"])) {
         .form-title {
             font-size: 1.8rem;
             color: #2c3e50;
+            color: var(--primary);
             margin-bottom: 30px;
             text-align: center;
         }
+
 
         .google-btn {
             margin-top: 20px;
@@ -89,6 +132,14 @@ if (isset($_SESSION["user_id"]) || isset($_SESSION["google_id"])) {
             .signin-card {
                 flex-direction: column;
             }
+
+            .signin-visual {
+                padding: 40px;
+            }
+
+            .signin-form-wrapper {
+                padding: 40px;
+            }
         }
     </style>
 </head>
@@ -98,9 +149,23 @@ if (isset($_SESSION["user_id"]) || isset($_SESSION["google_id"])) {
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">Exp<span>vs</span>Real</div>
+
             <ul class="nav-links">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="signin.php" class="btn-signin">Sign In</a></li>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="compare.html">Compare</a></li>
+                <li><a href="experience.html">Experiences</a></li>
+                <li><a href="share.html">Share</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="signin.php" class="btn-signin" style="color: var(--secondary);">Sign In</a></li>
             </ul>
         </div>
     </nav>
@@ -133,9 +198,56 @@ if (isset($_SESSION["user_id"]) || isset($_SESSION["google_id"])) {
                     <a href="signup.php">Sign Up</a>
                 </p>
 
+        <div class="signin-card fade-in-up">
+            <div class="signin-visual">
+                <h2 class="fade-in-up delay-100">Welcome Back</h2>
+                <p class="fade-in-up delay-200">Join our community of realists. Share your stories and read the
+                    unfiltered truth.</p>
+            </div>
+            <div class="signin-form-wrapper">
+                <h3 class="form-title fade-in-up delay-100">Account Login</h3>
+                <form 
+                    action="php/login.php" 
+                    method="POST" 
+                    class="share-form fade-in-up delay-200" 
+                    style="margin-top: 0; box-shadow: none; padding: 0;"
+                    autocomplete="off"
+                >
+                    <input type="email" name="email" placeholder="Email Address" autocomplete="off" required>
+                    <input type="password" name="password" placeholder="Password" autocomplete="current-password" required>
+                    <button type="submit" class="hover-scale">Sign In</button>
+
+                    <p style="text-align: center; margin-top: 15px; font-size: 0.9rem;">
+                        Don't have an account? 
+                        <a href="signup.php" style="color: var(--accent);">Sign Up</a>
+                    </p>
+                </form>
+
             </div>
         </div>
     </section>
 
+
 </body>
+    <!-- FOOTER -->
+    <footer id="contact" style="background: transparent; color: #555; padding-top: 20px; box-shadow: none;">
+        <p>contact@expvsreal.com</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector('#mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('is-active');
+            navLinks.classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('is-active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
 </html>

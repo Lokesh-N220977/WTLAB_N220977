@@ -1,12 +1,16 @@
 <?php
 session_start();
 
+
 // Allow access if normal login OR Google login
 if (!isset($_SESSION["user_id"]) && !isset($_SESSION["google_id"])) {
+=======
+if (!isset($_SESSION["user_id"])) {
     header("Location: signin.php");
     exit;
 }
 ?>
+
 
 <?php
 // Determine logged-in user name
@@ -48,12 +52,15 @@ if (isset($_SESSION["user_name"])) {
                 <li><a href="share.html">Share</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="about.html">About</a></li>
+
                 <?php if (isset($_SESSION["user_id"]) || isset($_SESSION["google_id"])): ?>
                     <li>Welcome, <?php echo htmlspecialchars($displayName); ?></li>
                     <li><a href="logout.php" class="btn-signin">Logout</a></li>
                 <?php else: ?>
                      <li><a href="signin.php" class="btn-signin">Sign In</a></li>
                 <?php endif; ?>
+                <li><a href="signin.php" class="btn-signin">Sign In</a></li>
+
             </ul>
         </div>
     </nav>
