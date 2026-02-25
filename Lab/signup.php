@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'db.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -151,7 +152,7 @@ session_start();
             }
             ?>
 
-            <form action="php/register.php" method="POST" autocomplete="off">
+            <form action="register.php" method="POST" autocomplete="off">
 
                 <input type="text" name="firstname" placeholder="First Name" required>
 
