@@ -905,3 +905,288 @@ git reset --hard HEAD~1
 
 ![git reset hard](screenshots/git-reset-hard.png)
 
+### Command: git rebase
+
+**Syntax**
+git rebase <branch-name>
+
+**Purpose**
+Reapplies commits from the current branch on top of another branch, creating a linear history.
+
+**Example**
+git rebase main
+
+**Screenshot**
+
+![git rebase](screenshots/git-rebase.png)
+
+### Command: git rebase -i
+
+**Syntax**
+git rebase -i <commit>
+
+**Purpose**
+Performs an interactive rebase allowing modification, reordering, or squashing of commits.
+
+**Example**
+git rebase -i HEAD~2
+
+**Screenshot**
+
+![git rebase interactive](screenshots/git-rebase-i.png)
+
+### Command: git rebase --continue
+
+**Syntax**
+git rebase --continue
+
+**Purpose**
+Continues the rebase process after resolving conflicts.
+
+**Example**
+git rebase --continue
+
+**Screenshot**
+
+![git rebase continue](screenshots/git-rebase-continue.png)
+
+### Command: git rebase --abort
+
+**Syntax**
+git rebase --abort
+
+**Purpose**
+Cancels the ongoing rebase process and restores the repository to its previous state.
+
+**Example**
+git rebase --abort
+
+**Screenshot**
+
+![git rebase abort](screenshots/git-rebase-abort.png)
+
+
+### Command: git cherry-pick
+
+**Syntax**
+git cherry-pick <commit-id>
+
+**Purpose**
+Applies a specific commit from another branch onto the current branch.
+
+**Example**
+git cherry-pick a1b2c3d
+
+**Screenshot**
+
+![git cherry pick](screenshots/git-cherry-pick.png)
+
+### Command: git format-patch
+
+**Syntax**
+git format-patch <number-of-commits>
+
+**Purpose**
+Generates patch files from commits that can be shared and applied elsewhere.
+
+**Example**
+git format-patch -1
+
+**Screenshot**
+
+![git format patch](screenshots/git-format-patch.png)
+
+### Command: git apply
+
+**Syntax**
+git apply <patch-file>
+
+**Purpose**
+Applies changes from a patch file to the working directory without creating a commit.
+
+**Example**
+git apply 0001-cherry-pick-commit.patch
+
+**Screenshot**
+
+![git apply](screenshots/git-apply.png)
+
+
+### Command: git am
+
+**Syntax**
+git am <patch-file>
+
+**Purpose**
+Applies a patch file and automatically creates a commit from it.
+
+**Example**
+git am 0001-cherry-pick-commit.patch
+
+**Screenshot**
+
+![git am](screenshots/git-am.png)
+
+### Command: git tag
+
+**Syntax**
+git tag
+
+**Purpose**
+Lists all tags in the repository.
+
+**Example**
+git tag
+
+**Screenshot**
+
+![git tag](screenshots/git-tag.png)
+
+### Command: git tag -a
+
+**Syntax**
+git tag -a <tag-name> -m "message"
+
+**Purpose**
+Creates an annotated tag with additional information like message, author, and date.
+
+**Example**
+git tag -a v1.0 -m "version 1.0 release"
+
+**Screenshot**
+
+![git tag annotated](screenshots/git-tag-a.png)
+
+### Command: git tag -d
+
+**Syntax**
+git tag -d <tag-name>
+
+**Purpose**
+Deletes a tag from the local repository.
+
+**Example**
+git tag -d v1.0
+
+**Screenshot**
+
+![git tag delete](screenshots/git-tag-d.png)
+
+### Command: git push origin --tags
+
+**Syntax**
+git push origin --tags
+
+**Purpose**
+Pushes all local tags to the remote repository.
+
+**Example**
+git push origin --tags
+
+**Screenshot**
+
+![git push tags](screenshots/git-push-tags.png)
+
+### Command: git submodule add
+
+**Syntax**
+git submodule add <repository-url> <folder-name>
+
+**Purpose**
+Adds an external Git repository as a submodule inside the current repository.
+
+**Example**
+git submodule add https://github.com/Lokesh-N220977/git-demo-practice.git submodule-demo
+
+**Screenshot**
+
+![git submodule add](screenshots/git-submodule-add.png)### Command: git submodule add
+
+**Syntax**
+git submodule add <repository-url> <folder-name>
+
+**Purpose**
+Adds an external Git repository as a submodule inside the current repository.
+
+**Example**
+git submodule add https://github.com/Lokesh-N220977/git-demo-practice.git submodule-demo
+
+**Screenshot**
+
+![git submodule add](screenshots/git-submodule-add.png)
+
+### Command: git submodule init
+
+**Syntax**
+git submodule init
+
+**Purpose**
+Initializes the submodule configuration by setting up the necessary metadata.
+
+**Example**
+git submodule init
+
+**Screenshot**
+
+![git submodule init](screenshots/git-submodule-init.png)
+
+### Command: git submodule update
+
+**Syntax**
+git submodule update
+
+**Purpose**
+Fetches and updates the submodule content to match the recorded commit.
+
+**Example**
+git submodule update
+
+**Screenshot**
+
+![git submodule update](screenshots/git-submodule-update.png)
+
+### Command: git bisect start
+
+**Syntax**
+git bisect start
+
+**Purpose**
+Starts the binary search process to find the commit that introduced a bug.
+
+**Example**
+git bisect start
+
+**Screenshot**
+
+![git bisect start](screenshots/git-bisect-start.png)
+
+### Command: git bisect bad
+
+**Syntax**
+git bisect bad
+
+**Purpose**
+Marks the current commit as containing the bug.
+
+**Example**
+git bisect bad
+
+**Screenshot**
+
+![git bisect bad](screenshots/git-bisect-bad.png)
+
+
+### Command: git bisect good
+
+**Syntax**
+git bisect good <commit-id>
+
+**Purpose**
+Marks a specific commit as good and helps Git narrow down the search for the faulty commit.
+
+**Example**
+git bisect good a1b2c3d
+
+**Screenshot**
+
+![git bisect good](screenshots/git-bisect-good.png)
